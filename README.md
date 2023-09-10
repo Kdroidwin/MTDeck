@@ -22,7 +22,10 @@ KiwiBrowserでカクカクする場合はFirefoxまたはYandexを使ってみ�
 3. 共有メニューを開いて「Indect Snippet」をタップ
 4. 検索に「MTDeck」と入力して最新バージョンのMTDeckをタップして適用
 
-スクリプト本体は[release]にあります。(https://apps.apple.com/jp/app/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88/id915249334)や、UserScriptに対応したブラウザである[Ohajiki](http://ohajiki.ios-web.com/)などでも動作します
+スクリプト本体は[release]にあります。
+
+
+UserScriptに対応したブラウザである[Ohajiki](http://ohajiki.ios-web.com/)などでも動作します
 
 ## 貢献
 以下のコマンドで開発できます
