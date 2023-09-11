@@ -9,15 +9,16 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 ## 使い方
 ### Androidユーザースクリプトとして動作)
 1. [KiwiBrowser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)をインストール
-5. メニューの「ホームに追加」からアプリ化
-
-KiwiBrowserでカクカクする場合はFirefoxまたはYandexを使ってみてください  
-→Firefoxアドオンは[こちら](https://addons.mozilla.org/ja/firefox/addon/mobiletweetdeck/)
-
-スクリプト本体は[release]（https://github.com/Kdroidwin/MTDeck_forked/releases/tag/MTDeck）にあります。
+2.[OldTweetDeck](https://github.com/dimdenGD/OldTweetDeck)をインストール
+3. [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)をインストール
+4. releaseからスクリプトをインストール
+5.TweetDeckにアクセスし メニューの「ホームに追加」からアプリ化
 
 
-UserScriptに対応したブラウザである[Ohajiki](http://ohajiki.ios-web.com/)などでも動作します
+スクリプト本体は[release](https://github.com/Kdroidwin/MTDeck_forked/releases/tag/MTDeck)にあります。
+
+
+[記事](https://kdroidwin.hatenablog.com/entry/2023/09/05/213926)
 
 ## 貢献
 以下のコマンドで開発できます
