@@ -4,20 +4,19 @@ import { TouchManager } from "./touch";
 import { Config } from "./config";
 import { Menu } from "./menu";
 import { clickAll } from "./utils";
+import { AppContainerCustomizer, MediaPanelCustomizer } from "./customizer";
 
 export class Deck {
   private config: Config = new Config();
   private scrollController: ScrollController = new ScrollController();
   private backController: BackController = new BackController();
-  private columnIndex: number = 0;
+  public columnIndex: number = 0;
   private $columns: HTMLElement[] = [];
   private $drawerOpenButton: HTMLButtonElement | null = null;
 
   public ready(): void {
     const initInterval = setInterval(() => {
-      this.$drawerOpenButton = document.querySelector<HTMLButtonElement>(
-        "button[data-drawer=compose]"
-      );
+      this.$drawerOpenButton = document.querySelector<HTMLButtonElement>("button[data-drawer=compose]");
       if (this.$drawerOpenButton) {
         this.config.init();
         this.init();
@@ -27,13 +26,11 @@ export class Deck {
     }, 100);
   }
 
-  private update() {
+  public update() {
     this.$columns = [];
-    document
-      .querySelectorAll<HTMLElement>("section.column")
-      .forEach(($column) => {
-        this.$columns.push($column);
-      });
+    document.querySelectorAll<HTMLElement>("section.column").forEach(($column) => {
+      this.$columns.push($column);
+    });
     this.fixColumnState();
     this.updateTweetButton();
   }
@@ -42,10 +39,7 @@ export class Deck {
     this.columnIndex = 0;
     let $nearColumn = this.$columns[0];
     for (let i = 1; i < this.$columns.length; i++) {
-      if (
-        this.$columns[i].getBoundingClientRect().left ** 2 <
-        $nearColumn.getBoundingClientRect().left ** 2
-      ) {
+      if (this.$columns[i].getBoundingClientRect().left ** 2 < $nearColumn.getBoundingClientRect().left ** 2) {
         $nearColumn = this.$columns[i];
         this.columnIndex = i;
       }
@@ -54,15 +48,9 @@ export class Deck {
   }
 
   private updateTweetButton() {
-    const $tweetButton = document.querySelector<HTMLButtonElement>(
-      ".tweet-button"
-    );
+    const $tweetButton = document.querySelector<HTMLButtonElement>(".tweet-button");
     setTimeout(() => {
-      if (
-        this.$columns[this.columnIndex].classList.contains(
-          "js-column-state-detail-view"
-        )
-      ) {
+      if (this.$columns[this.columnIndex].classList.contains("js-column-state-detail-view")) {
         $tweetButton!.style.display = "none";
       } else {
         $tweetButton!.style.display = "block";
@@ -74,9 +62,7 @@ export class Deck {
     document.body.classList.add("mtdeck");
     Menu.close();
 
-    const $appContainer = document.querySelector<HTMLDivElement>(
-      "div.app-columns-container"
-    )!;
+    const $appContainer = document.querySelector<HTMLDivElement>("div.app-columns-container")!;
 
     if (this.config.getBoolean("mtdBackAtMounted")) {
       clickAll(".js-dismiss");
@@ -99,6 +85,24 @@ export class Deck {
     if (this.config.getBoolean("mtdMobileStyleFriendly")) {
       document.body.classList.add("mtdeck-mobile");
     }
+    if (this.config.getBoolean("mtdShowAbsoluteTime")) {
+      document.body.classList.add("mtdeck-show-absolute-time");
+    }
+    if (this.config.getBoolean("mtdShowExpander")) {
+      document.body.classList.add("mtdeck-show-expander");
+    }
+    if (this.config.getBoolean("mtdEnableSwipeNavMedia")) {
+      document.body.classList.add("mtdeck-enable-swipe-media");
+    }
+    if (this.config.getBoolean("mtdEnableSwipeNavCol")) {
+      document.body.classList.add("mtdeck-enable-swipe-col");
+    }
+    if (this.config.getBoolean("mtdMoveCloseMediaButton")) {
+      document.body.classList.add("mtdeck-move-close-media-button");
+    }
+    new AppContainerCustomizer().doCustomize(this);
+    new MediaPanelCustomizer().doCustomize();
+
     this.update();
 
     const touchManager = new TouchManager($appContainer);
@@ -160,11 +164,7 @@ function setLazyLoadObservers($targets: HTMLElement[]) {
     for (const e of entries) {
       if (e.isIntersecting) {
         const style = (e.target as HTMLElement).style;
-        style.setProperty(
-          "background-image",
-          style.backgroundImage,
-          "important"
-        );
+        style.setProperty("background-image", style.backgroundImage, "important");
       }
     }
   });
@@ -172,9 +172,7 @@ function setLazyLoadObservers($targets: HTMLElement[]) {
     for (const mutation of mutations) {
       mutation.addedNodes.forEach((node) => {
         if ("querySelector" in node) {
-          const mediaItems = (node as HTMLElement).querySelectorAll(
-            ".media-item, .media-image"
-          );
+          const mediaItems = (node as HTMLElement).querySelectorAll(".media-item, .media-image");
           if (mediaItems) {
             mediaItems.forEach((item) => intersectionObserver.observe(item));
           }

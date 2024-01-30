@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "A browser extension to customize TweetDeck for mobile"
+    "message": "A browser extension to customize TweetDeck with OTD for mobile"
   },
   "configTitle": {
     "message": "Preference"
@@ -34,5 +34,20 @@
   },
   "configOptionMobileFriendlyOnCol": {
     "message": "Enable mobile friendly styles on columns"
+  },
+  "configOptionShowAbsoluteTime": {
+    "message": "Show absolute time"
+  },
+  "configOptionEnableSwipeNavMedia": {
+    "message": "Enable swipe to prev/next media"
+  },
+  "configOptionEnableSwipeNavCol": {
+    "message": "Enable swipe to prev/next column"
+  },
+  "configOptionShowExpander": {
+    "message": "Show 'Expand tweet' button"
+  },
+  "configOptionMoveCloseMediaButton": {
+    "message": "Move close button [X] in media panel to bottom-left"
   }
 }

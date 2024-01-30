@@ -33,7 +33,7 @@ export class Config {
       label: _("configOptionHideEngagementCounts"),
       name: "mtdHideCounts",
       type: "checkbox",
-      default: "false"
+      default: "false",
     },
     {
       label: _("configOptionLazyLoadImages"),
@@ -52,6 +52,36 @@ export class Config {
       name: "mtdMobileStyleFriendly",
       type: "checkbox",
       default: "true",
+    },
+    {
+      label: _("configOptionShowAbsoluteTime"),
+      name: "mtdShowAbsoluteTime",
+      type: "checkbox",
+      default: "false",
+    },
+    {
+      label: _("configOptionEnableSwipeNavMedia"),
+      name: "mtdEnableSwipeNavMedia",
+      type: "checkbox",
+      default: "false",
+    },
+    {
+      label: _("configOptionEnableSwipeNavCol"),
+      name: "mtdEnableSwipeNavCol",
+      type: "checkbox",
+      default: "false",
+    },
+    {
+      label: _("configOptionShowExpander"),
+      name: "mtdShowExpander",
+      type: "checkbox",
+      default: "false",
+    },
+    {
+      label: _("configOptionMoveCloseMediaButton"),
+      name: "mtdMoveCloseMediaButton",
+      type: "checkbox",
+      default: "false",
     },
   ];
 
@@ -81,9 +111,7 @@ export class Config {
   }
 
   private save() {
-    const $inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(
-      ".mtdeck-config-input"
-    );
+    const $inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(".mtdeck-config-input");
     $inputs.forEach(($input) => {
       if ($input.type === "checkbox") {
         localStorage.setItem($input.name, `${$input.checked}`);
@@ -107,8 +135,8 @@ export class Config {
       <div class="mtdeck-config-item">
         <p>MTDeck v${version}</p>
         <p>${_("configLinksLabel")}:
-          <a href="https://github.com/mkizka/MTDeck" target="_blank">Github</a>
-          <a href="https://twitter.com/mkizka">Twitter</a>
+          <a href="https://github.com/fronoske/MTDeck_for_OTD" target="_blank">Github</a>
+          <a href="https://twitter.com/fronoske">Twitter</a>
         </p>
       </div>
     `)
@@ -124,17 +152,13 @@ export class Config {
       </div>
     `)
     );
-    document
-      .querySelector<HTMLButtonElement>("#mtdeck-config-save")!
-      .addEventListener("click", () => {
-        this.save();
-        location.reload();
-      });
-    document
-      .querySelector<HTMLButtonElement>("#mtdeck-config-back")!
-      .addEventListener("click", () => {
-        this.close();
-      });
+    document.querySelector<HTMLButtonElement>("#mtdeck-config-save")!.addEventListener("click", () => {
+      this.save();
+      location.reload();
+    });
+    document.querySelector<HTMLButtonElement>("#mtdeck-config-back")!.addEventListener("click", () => {
+      this.close();
+    });
   }
 
   private createForm() {
@@ -162,22 +186,13 @@ export class Config {
   }
 
   private createSettingButton() {
-    const $settingsButton = document.querySelector<HTMLAnchorElement>(
-      ".js-app-settings"
-    );
-    const $copiedSettingsButton = safeHtml<HTMLAnchorElement>(
-      $settingsButton!.outerHTML!
-    );
+    const $settingsButton = document.querySelector<HTMLAnchorElement>(".js-app-settings");
+    const $copiedSettingsButton = safeHtml<HTMLAnchorElement>($settingsButton!.outerHTML!);
     $copiedSettingsButton.dataset.action = "mtdeckConfig";
     $copiedSettingsButton.dataset.title = "MTDeck Config";
     $copiedSettingsButton.classList.add("mtdeck-config-button");
-    $copiedSettingsButton
-      .querySelector<HTMLDivElement>(".app-nav-link-text")!
-      .insertAdjacentText("afterbegin", "MTD");
-    $settingsButton!.parentElement!.insertAdjacentElement(
-      "afterbegin",
-      $copiedSettingsButton
-    );
+    $copiedSettingsButton.querySelector<HTMLDivElement>(".app-nav-link-text")!.insertAdjacentText("afterbegin", "MTD");
+    $settingsButton!.parentElement!.insertAdjacentElement("afterbegin", $copiedSettingsButton);
     $copiedSettingsButton.addEventListener("click", (e) => this.open());
   }
 
