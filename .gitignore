@@ -3,5 +3,4 @@ node_modules
 *.log
 web-ext-artifacts
 dist/*
-!dist/mtdeck.user.js
-!dist/mtdeck.min.user.js
+!dist/*.user.js

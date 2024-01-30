@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "MTDeck",
+  "name": "MTDeck for OTD",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "icons": {
@@ -10,8 +10,8 @@
   },
   "content_scripts": [
     {
-      "js": ["./mtdeck.user.js"],
-      "matches": ["https://tweetdeck.twitter.com/*"],
+      "js": ["./MTDeckForOTD.user.js"],
+      "matches": ["https://twitter.com/i/tweetdeck"],
       "run_at": "document_end"
     }
   ]

@@ -9,8 +9,8 @@ export const bundlePlugins = [typescript(), json(), sass()];
 
 export const userscriptPlugin = userscriptHeader({
   overwrite: {
-    name: "MTDeck",
-    match: "https://tweetdeck.twitter.com",
+    name: "MTDeck for OTD",
+    match: "https://twitter.com/i/tweetdeck",
   },
 });
 
@@ -43,7 +43,7 @@ const copyPlugin = copy({
 export default {
   input: "./src/index.ts",
   output: {
-    file: "./dist/mtdeck.user.js",
+    file: "./dist/MTDeckForOTD.user.js",
     format: "iife",
   },
   plugins: [...bundlePlugins, userscriptPlugin, copyPlugin],
