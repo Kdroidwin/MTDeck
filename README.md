@@ -3,12 +3,14 @@
 TweetDeck をスマホアプリのように使えるようにする UserScript (mod by fronoske)
 
 > [!NOTE]
-> この README は fronoske による改変の情報のみを掲載しています。
-> オリジナル（kdroidwin 氏版）の README は README.orig.md を参照してください。
+> この README は主に fronoske によって改変した内容のみを掲載しています。
+> オリジナル（kdroidwin 氏版）の README は [README.orig.md](https://github.com/fronoske/MTDeck_for_OTD/blob/main/README.orig.md) を参照してください。
 
 ## 使い方
-README.orig.md を参照してください。
+UserScript本体は [releases](https://github.com/fronoske/MTDeck_for_OTD/releases) にあります。`MTDeckForOTD.min.user.js` と `MTDeckForOTD.user.js` のどちらを使っても構いません。
+min の方がサイズが小さいので高速かもしれません。
 
+その他は [README.orig.md](https://github.com/fronoske/MTDeck_for_OTD/blob/main/README.orig.md) を参照してください。
 
 
 ## 新機能
@@ -28,13 +30,11 @@ README.orig.md を参照してください。
 MTDeck や OldTweetDeck は X 社が想定していない手法でサーバーにアクセスしています。そのためこれらの使用にはアカウント停止などのリスクがあることを
 承知の上でお使いください。
 
-
 「Expand tweet」ボタンの表示は、ツイートの最後が「…」かどうかだけで判断しているため、実際には後続のメッセージが存在しない場合もあります。
 
 
 ## TODO
 - 画像の拡大・縮小を可能にする
-
 
 ## 謝辞
 すばらしいスクリプトを開発された [mkizka](https://github.com/mkizka) 氏、それを OTD に対応された [Kdroidwin](https://github.com/Kdroidwin) 氏、
