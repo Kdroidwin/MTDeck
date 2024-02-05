@@ -83,6 +83,12 @@ export class Config {
       type: "checkbox",
       default: "false",
     },
+    {
+      label: _("configOptionShowInitialInColumnTab"),
+      name: "mtdShowInitialInColumnTab",
+      type: "checkbox",
+      default: "false",
+    },
   ];
 
   public getString(key: string): string {

@@ -49,5 +49,8 @@
   },
   "configOptionMoveCloseMediaButton": {
     "message": "Move close button [X] in media panel to bottom-left"
+  },
+  "configOptionShowInitialInColumnTab": {
+    "message": "Show initial of list (user) name in list (user) tab"
   }
 }

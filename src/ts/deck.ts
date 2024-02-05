@@ -100,6 +100,9 @@ export class Deck {
     if (this.config.getBoolean("mtdMoveCloseMediaButton")) {
       document.body.classList.add("mtdeck-move-close-media-button");
     }
+    if (this.config.getBoolean("mtdShowInitialInColumnTab")) {
+      document.body.classList.add("mtdeck-show-initial-in-col-tab");
+    }
     new AppContainerCustomizer().doCustomize(this);
     new MediaPanelCustomizer().doCustomize();
 

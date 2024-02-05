@@ -88,4 +88,7 @@ body.mtdeck {
   .column-navigator {
     top: 50px;
   }
+
+  /* カラム番号を表示しないようにする */
+  .column-nav-link:after { display: none;}
 }

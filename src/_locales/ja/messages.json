@@ -49,5 +49,8 @@
   },
   "configOptionMoveCloseMediaButton": {
     "message": "画像パネルの閉じるボタン [X] を左下に移動する"
+  },
+  "configOptionShowInitialInColumnTab": {
+    "message": "タブにリスト名とユーザー名の頭文字を表示する"
   }
 }

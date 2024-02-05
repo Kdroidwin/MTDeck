@@ -10,6 +10,7 @@ export class AppContainerCustomizer {
     const configShowAbsoluteTime = this.bodyClassList.contains("mtdeck-show-absolute-time");
     const configShowExpander = this.bodyClassList.contains("mtdeck-show-expander");
     const configEnableSwipeCol = this.bodyClassList.contains("mtdeck-enable-swipe-col");
+    const configShowInitialInColumnTab = this.bodyClassList.contains("mtdeck-show-initial-in-col-tab");
 
     // Enable Swipe Navigation in Columns
     if (configEnableSwipeCol) {
@@ -23,9 +24,37 @@ export class AppContainerCustomizer {
     };
     const config = { childList: true, attributes: false, characterData: false, subtree: true };
     new MutationObserver(onNewPostGenerated).observe(this.$appContainer, config);
+
+    // カラムタブにリスト名の頭文字を表示する
+    if (configShowInitialInColumnTab) {
+      this.showInitialInColumnTab();
+    }
   }
 
-  private enableSwipeNavCol(mtd: Deck) {
+  private showInitialInColumnTab(): void {
+    const $navItems = document.querySelectorAll<HTMLAnchorElement>("li.js-column-nav-menu-item");
+    const initialStyle = "position: absolute; left: 63%; bottom: 5%; font-size: medium; font-weight: bold;";
+    $navItems.forEach(($navItem) => {
+      const $icon = $navItem.querySelector("a.js-header-action > div.obj-left > i");
+      if ($icon?.classList.contains("icon-list")) {
+        const listName: string = $navItem.querySelector("span.column-heading")?.textContent!;
+        if (listName === null || listName === "") return;
+        const $listNameInitial = document.createElement("span");
+        $listNameInitial.textContent = listName[0];
+        $listNameInitial.setAttribute("style", initialStyle);
+        $navItem.appendChild($listNameInitial);
+      } else if ($icon?.classList.contains("icon-user")) {
+        const userName: string = $navItem.querySelector("span.txt-mute")?.textContent!;
+        if (userName === null || userName === "") return;
+        const $userNameInitial = document.createElement("span");
+        $userNameInitial.textContent = userName[1];
+        $userNameInitial.setAttribute("style", initialStyle);
+        $navItem.appendChild($userNameInitial);
+      }
+    });
+  }
+
+  private enableSwipeNavCol(mtd: Deck): void {
     const touchManager = new TouchManager(this.$appContainer);
     touchManager.onSwipe = (startX, direction) => {
       // console.log(direction);
