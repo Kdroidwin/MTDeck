@@ -20,7 +20,7 @@ html.dark .mtdeck-config {
   }
 
   &-item {
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important; /* 設定項目の行間を狭める */
   }
 
   &-input[type="number"] {
