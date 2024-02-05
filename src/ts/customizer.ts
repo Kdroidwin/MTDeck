@@ -97,18 +97,31 @@ class AbsoluteTimeFormatter {
     const $tweetTimestamps = document.querySelectorAll<HTMLTimeElement>("time.tweet-timestamp:not([data-msecdeck=done])");
     if ($tweetTimestamps.length) {
       for (const $time of $tweetTimestamps) {
-        $time.classList.remove("js-timestamp");
         $time.dataset.msecdeck = "done";
         const $timeContent = $time.firstElementChild;
-        if ($timeContent === null) continue;
+        if ($timeContent === null || $timeContent.textContent === null) continue;
 
         const timestampInSeconds = Number(
           $timeContent.getAttribute("href")?.split("/")[5] || $time.dataset.time || $timeContent.textContent?.replace(/(am|pm)\s·/, " $1")
         );
         if (timestampInSeconds != 0) {
           const formattedTime = this.formatTime(this.getDateFromSnowflake(timestampInSeconds));
-          const origTextPart = ` (${$timeContent.textContent})`;
-          $timeContent.textContent = `${formattedTime}${origTextPart.length > 8 ? "" : origTextPart}`;
+          if ($timeContent.textContent.length > 6) {
+            // オリジナルの日時の文字列が 6文字以上ならカッコ内の相対時刻は不要
+            $timeContent.textContent = formattedTime;
+          } else {
+            const $absoluteTimeSpan1 = document.createElement("span");
+            $absoluteTimeSpan1.classList.add(
+              "tweet-timestamp",
+              "txt-mute",
+              "flex-shrink--0",
+              "txt-size-variable--12",
+              "no-wrap",
+              "mtdeck-absolute-time"
+            );
+            $absoluteTimeSpan1.textContent = `${formattedTime} -`;
+            $time.parentElement?.insertBefore($absoluteTimeSpan1, $time);
+          }
         }
         // RT なら RT 日時も表示する
         const $article: HTMLElement | null = $time.closest("article[data-key][data-tweet-id");
@@ -140,7 +153,7 @@ class AbsoluteTimeFormatter {
     const pad = (num: number, size: number) => num.toString().padStart(size, "0");
     const dayOfWeek = includeDayOfWeek ? `(${["日", "月", "火", "水", "木", "金", "土"][time.getDay()]}) ` : "";
     const yearPart = new Date().getFullYear() != time.getFullYear() ? `${time.getFullYear()}/` : "";
-    const datePart = `${time.getDate()}${dayOfWeek}`;
+    const datePart = `${time.getMonth() + 1}/${time.getDate()}${dayOfWeek}`;
     const timePart = `${time.getHours()}:${pad(time.getMinutes(), 2)}`;
     const dateString = `${yearPart}${datePart} ${timePart}`;
     return dateString;
