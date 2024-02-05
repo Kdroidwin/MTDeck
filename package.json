@@ -3,7 +3,7 @@
   "description": "TweetDeckをスマホアプリのように使えるようにするUserScript (OTD対応版) mod by fronoske",
   "author": "mkizka, kdroidwin, and fronoske",
   "homepage": "https://github.com/fronoske/MTDeck_for_OTD",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist web-ext-artifacts && run-s _build:* && yarn minify",
