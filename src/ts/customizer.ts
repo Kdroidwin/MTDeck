@@ -77,7 +77,12 @@ class TweetExpander {
       const $tweetText = $article.querySelector(".js-tweet-text");
       const statusUrl = $article.querySelector("span.tweet-action[href]")?.getAttribute("href");
       if ($tweetText !== null && statusUrl !== null) {
-        if ($tweetText.textContent?.endsWith("…") && $tweetText.childNodes[$tweetText.childNodes.length - 1].nodeType == Node.TEXT_NODE) {
+        // ツイート本文がリンクで終わらず、「…」で終わるが「……」では終わらない場合
+        if (
+          $tweetText.textContent?.endsWith("…") &&
+          !$tweetText.textContent?.endsWith("……") &&
+          $tweetText.childNodes[$tweetText.childNodes.length - 1].nodeType == Node.TEXT_NODE
+        ) {
           const id = $article.getAttribute("data-tweet-id");
           // OTD が実装している expandTweet() を呼び出す
           $tweetText.innerHTML += `&nbsp;<a class="expand-tweet" href="${statusUrl}" onclick="expandTweet(event, '${id}')">Expand tweet</a>`;
