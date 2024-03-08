@@ -7,7 +7,7 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 <img src="https://i.imgur.com/aFG6fBr.png" width="300">
 
 ## 使い方
-### Androidユーザースクリプトとして動作)
+### Androidユーザースクリプトとして動作
 1. [KiwiBrowser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)をインストール
 
 2.[OldTweetDeck](https://github.com/dimdenGD/OldTweetDeck)をインストール
