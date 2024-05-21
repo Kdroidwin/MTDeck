@@ -9,8 +9,7 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 ## 使い方
 ### Androidユーザースクリプトとして動作
 1. [KiwiBrowser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)をインストール
-
- 2.[OldTweetDeck](https://github.com/dimdenGD/OldTweetDeck)をインストール
+2.[OldTweetDeck](https://github.com/dimdenGD/OldTweetDeck)をインストール
 
 3. [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)をインストール
 
