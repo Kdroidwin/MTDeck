@@ -15,11 +15,12 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 3. [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)をインストール
 
 4. releaseからスクリプトをインストール
+スクリプト本体は[release](https://github.com/Kdroidwin/MTDeck_forked/releases/tag/MTDeck)にあります。
 
 5.TweetDeckにアクセスし メニューの「ホームに追加」からアプリ化
 
 
-スクリプト本体は[release](https://github.com/Kdroidwin/MTDeck_forked/releases/tag/MTDeck)にあります。
+ [BetterTweetDeck](https://github.com/dimdenGD/BetterTweetDeck/)も利用可能です。
 
 
 [記事](https://kdroidwin.hatenablog.com/entry/2023/09/05/213926)
@@ -35,3 +36,4 @@ Issue/PRご自由にどうぞ
 
 ## 参考
 [totoraj930/TJDeck](https://github.com/totoraj930/TJDeck)
+[mkizka/MTDeck](https://github.com/mkizka/MTDeck)
