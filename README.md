@@ -1,4 +1,4 @@
-# MTDeck OldTweetDeck対応版
+# MTDeck forked (OldTweetDeck対応版)
 TweetDeckをスマホアプリのように使えるようにするUserScript
 
 [動画デモ](https://streamable.com/oocea)
