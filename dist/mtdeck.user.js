@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name MTDeck
-// @version 1.9.0
-// @author mkizka
+// @version 1.9.1
+// @author mkizka and kdroidwin
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
 // @homepage https://github.com/mkizka/MTDeck
-// @match https://tweetdeck.twitter.com
+// @match https://twitter.com/i/tweetdeck
+// @match https://x.com/i/tweetdeck
 // ==/UserScript==
 (function () {
   'use strict';
